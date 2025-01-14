@@ -1,0 +1,1 @@
+# The file /django-website/django-website/blog/__init__.py is intentionally left blank.

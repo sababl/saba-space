@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Name</h1>
+            <p>Contact Information</p>
+        </header>
+        
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <!-- Loop through education entries -->
+                {% for education in education_list %}
+                <li>
+                    <strong>{{ education.degree }}</strong> - {{ education.institution }} ({{ education.year }})
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section id="work-experience">
+            <h2>Work Experience</h2>
+            <ul>
+                <!-- Loop through work experience entries -->
+                {% for experience in work_experience_list %}
+                <li>
+                    <strong>{{ experience.job_title }}</strong> at {{ experience.company }} ({{ experience.start_date }} - {{ experience.end_date }})
+                    <p>{{ experience.description }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <!-- Loop through skills -->
+                {% for skill in skills %}
+                <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <ul>
+                <!-- Loop through certifications -->
+                {% for certification in certifications %}
+                <li>{{ certification }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
