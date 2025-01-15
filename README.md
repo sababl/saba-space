@@ -1,2 +1,2 @@
 # saba-space
-A website to gather around all of my personal curiosity 
+A website to gather around all of my personal curiosities
