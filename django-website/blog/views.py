@@ -1,10 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from rest_framework.response import Response
 from .models import Post
+from .serializers import PostSerializer
 
-def post_list(request):
-    posts = Post.objects.all()
-    return render(request, 'blog/post_list.html', {'posts': posts})
-
-def post_detail(request, slug):
-    post = Post.objects.get(slug=slug)
-    return render(request, 'blog/post_detail.html', {'post': post}) 
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    lookup_field = 'slug'

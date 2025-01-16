@@ -1,19 +1,25 @@
-def education_list(request):
-    # Logic to retrieve and display education information
-    pass
+from rest_framework import viewsets
+from rest_framework.response import Response
+from .models import Education, WorkExperience, Skill, Certification
+from .serializers import (
+    EducationSerializer, 
+    WorkExperienceSerializer,
+    SkillSerializer,
+    CertificationSerializer
+)
 
-def work_experience_list(request):
-    # Logic to retrieve and display work experience information
-    pass
+class EducationViewSet(viewsets.ModelViewSet):
+    queryset = Education.objects.all()
+    serializer_class = EducationSerializer
 
-def skills_list(request):
-    # Logic to retrieve and display skills information
-    pass
+class WorkExperienceViewSet(viewsets.ModelViewSet):
+    queryset = WorkExperience.objects.all()
+    serializer_class = WorkExperienceSerializer
 
-def certifications_list(request):
-    # Logic to retrieve and display certifications information
-    pass
+class SkillViewSet(viewsets.ModelViewSet):
+    queryset = Skill.objects.all()
+    serializer_class = SkillSerializer
 
-def resume_view(request):
-    # Logic to display the complete resume
-    pass
+class CertificationViewSet(viewsets.ModelViewSet):
+    queryset = Certification.objects.all()
+    serializer_class = CertificationSerializer

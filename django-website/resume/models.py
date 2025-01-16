@@ -1,6 +1,7 @@
 from django.db import models
+from mysite.models import BaseModel
 
-class Education(models.Model):
+class Education(BaseModel):
     institution = models.CharField(max_length=255)
     degree = models.CharField(max_length=255)
     field_of_study = models.CharField(max_length=255)
@@ -11,7 +12,7 @@ class Education(models.Model):
         return f"{self.degree} in {self.field_of_study} from {self.institution}"
 
 
-class WorkExperience(models.Model):
+class WorkExperience(BaseModel):
     company = models.CharField(max_length=255)
     position = models.CharField(max_length=255)
     start_date = models.DateField()
@@ -22,7 +23,7 @@ class WorkExperience(models.Model):
         return f"{self.position} at {self.company}"
 
 
-class Skill(models.Model):
+class Skill(BaseModel):
     name = models.CharField(max_length=100)
     proficiency = models.CharField(max_length=50)
 
@@ -30,7 +31,7 @@ class Skill(models.Model):
         return self.name
 
 
-class Certification(models.Model):
+class Certification(BaseModel):
     title = models.CharField(max_length=255)
     issued_by = models.CharField(max_length=255)
     date_issued = models.DateField()

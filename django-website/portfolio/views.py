@@ -1,7 +1,9 @@
-def project_list(request):
-    projects = Project.objects.all()
-    return render(request, 'portfolio/project_list.html', {'projects': projects})
+from rest_framework import viewsets
+from rest_framework.response import Response
+from .models import Project
+from .serializers import ProjectSerializer
 
-def project_detail(request, slug):
-    project = get_object_or_404(Project, slug=slug)
-    return render(request, 'portfolio/project_detail.html', {'project': project})
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+    lookup_field = 'slug'

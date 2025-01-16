@@ -1,6 +1,11 @@
 from django.urls import path
-from . import views
+from rest_framework import routers
+from .views import EducationViewSet, WorkExperienceViewSet, SkillViewSet, CertificationViewSet
 
-urlpatterns = [
-    path('', views.resume_view, name='resume'),
-]
+router = routers.DefaultRouter()
+router.register(r'education', EducationViewSet)
+router.register(r'experience', WorkExperienceViewSet)
+router.register(r'skills', SkillViewSet)
+router.register(r'certifications', CertificationViewSet)
+
+urlpatterns = router.urls
