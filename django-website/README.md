@@ -32,12 +32,27 @@ This project is a personal website built using Django. It includes sections for 
    pip install -r requirements.txt
    ```
 
-4. Run the migrations:
+4. Set up environment variables:
+   
+   For development, you can create a `.env` file in the project root:
+   ```
+   # Create and set a secure SECRET_KEY
+   echo "DJANGO_SECRET_KEY='your-secure-secret-key-here'" > .env
+   ```
+   
+   For production, ensure you set the environment variable on your server:
+   ```
+   export DJANGO_SECRET_KEY='your-secure-secret-key-here'
+   ```
+   
+   Note: If not set, a default insecure key will be used for development only.
+
+5. Run the migrations:
    ```
    python manage.py migrate
    ```
 
-5. Start the development server:
+6. Start the development server:
    ```
    python manage.py runserver
    ```
